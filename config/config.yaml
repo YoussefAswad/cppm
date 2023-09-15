@@ -1,0 +1,27 @@
+default:
+  WIDTH: 1920
+  HEIGHT: 1080
+  # RESOLUTION: 1920x1080
+  DISPLAY: eDP-1
+  REFRESH_RATE: 165
+desktop_commands:
+  hyprland: hyprctl keyword monitor {DISPLAY},{WIDTH}x{HEIGHT}@{REFRESH_RATE},0x0,1
+  gnome: >-
+    su -c "DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u "$USER")/bus
+    gnome-randr modify -m {WIDTH}x{HEIGHT}@{REFRESH_RATE} {DISPLAY}" "$USER"
+profiles:
+  powersave:
+    priority: 0
+    POWER_PROFILE: power-saver
+    BRIGHTNESS: 20
+    REFRESH_RATE: 60
+  balanced:
+    priority: 1
+    POWER_PROFILE: balanced
+    BRIGHTNESS: 100
+    REFRESH_RATE: 165
+  performance:
+    priority: 2
+    POWER_PROFILE: performance
+    BRIGHTNESS: 100
+    REFRESH_RATE: 165
