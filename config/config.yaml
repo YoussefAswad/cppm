@@ -2,7 +2,7 @@ default:
   # Default settings for monitors
   BRIGHTNESS: 100
   MONITORS:
-    - NAME: eDP-1
+    eDP-1:
       WIDTH: 1920
       HEIGHT: 1080
       REFRESH_RATE: 165
@@ -10,7 +10,7 @@ default:
 commands:
   global:
     - powerprofilesctl set {POWER_PROFILE}
-    - brightnessctl -s {BRIGHTNESS}%
+    - brightnessctl s {BRIGHTNESS}%
 
 retrieve_commands:
   BRIGHTNESS: brightnessctl -m | awk -F, '{print $4}' | awk -F% '{print $1}'
@@ -22,7 +22,9 @@ profiles:
     POWER_PROFILE: power-saver
     BRIGHTNESS: 20
     MONITORS:
-      - NAME: eDP-1
+      eDP-1:
+        WIDTH: 1920
+        HEIGHT: 1080
         REFRESH_RATE: 60
 
   balanced:
@@ -30,7 +32,9 @@ profiles:
     POWER_PROFILE: balanced
     BRIGHTNESS: 100
     MONITORS:
-      - NAME: eDP-1
+      eDP-1:
+        WIDTH: 1920
+        HEIGHT: 1080
         REFRESH_RATE: 165
 
   performance:
@@ -38,5 +42,7 @@ profiles:
     POWER_PROFILE: performance
     BRIGHTNESS: 100
     MONITORS:
-      - NAME: eDP-1
+      eDP-1:
+        WIDTH: 1920
+        HEIGHT: 1080
         REFRESH_RATE: 165

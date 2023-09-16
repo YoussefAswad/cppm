@@ -3,7 +3,7 @@ import yaml
 from jsonschema import exceptions, validate
 
 # Load the schema
-with open("schema.jsonc", "r") as f:
+with open("schema.json", "r") as f:
     schema = json.load(f)
 
 # Load the data

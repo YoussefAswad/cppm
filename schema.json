@@ -8,16 +8,14 @@
       "additionalProperties": { "type": ["number", "string"] },
       "properties": {
         "MONITORS": {
-          "type": "array",
-          "items": {
+          "type": "object",
+          "additionalProperties": {
             "type": "object",
             "properties": {
-              "NAME": { "type": "string" },
               "WIDTH": { "type": "integer" },
               "HEIGHT": { "type": "integer" },
               "REFRESH_RATE": { "type": "number" }
             },
-            "required": ["NAME"],
             "minProperties": 2
           }
         }
@@ -42,16 +40,14 @@
           "additionalProperties": { "type": ["number", "string"] },
           "priority": { "type": "integer" },
           "MONITORS": {
-            "type": "array",
-            "items": {
+            "type": "object",
+            "additionalProperties": {
               "type": "object",
               "properties": {
-                "NAME": { "type": "string" },
                 "WIDTH": { "type": "integer" },
                 "HEIGHT": { "type": "integer" },
                 "REFRESH_RATE": { "type": "number" }
               },
-              "required": ["NAME"],
               "minProperties": 2
             }
           }
